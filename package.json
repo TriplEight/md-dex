@@ -1,0 +1,19 @@
+{
+  "name": "full-stack-dex",
+  "private": true,
+  "workspaces": [
+    "frontend/web-app",
+    "backend/services/analytics-service",
+    "backend/services/wallet-service",
+    "contracts",
+    "subgraph"
+  ],
+  "scripts": {
+    "dev": "concurrently -n frontend,analytics,wallet \"npm --workspace frontend/web-app run dev\" \"npm --workspace backend/services/analytics-service run start:dev\" \"npm --workspace backend/services/wallet-service run start:dev\"",
+    "chain:node": "npm --workspace contracts run node",
+    "contracts:deploy": "npm --workspace contracts run deploy:local"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
