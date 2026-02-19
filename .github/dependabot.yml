@@ -1,0 +1,193 @@
+# .github/dependabot.yml
+
+version: 2
+
+updates:
+
+  # ── Root (workspace / shared tooling) ─────────────────────────────────────
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "root"
+
+  # ── Smart Contracts (Hardhat + OpenZeppelin + UniswapV2) ───────────────────
+  - package-ecosystem: "npm"
+    directory: "/contracts"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 8
+    groups:
+      hardhat:
+        patterns:
+          - "hardhat"
+          - "@hardhat/*"
+          - "hardhat-*"
+          - "@nomicfoundation/*"
+          - "@nomiclabs/*"
+      openzeppelin:
+        patterns:
+          - "@openzeppelin/*"
+      ethereum-libs:
+        patterns:
+          - "ethers"
+          - "viem"
+    ignore:
+      # Solidity compiler version bumps should be deliberate
+      - dependency-name: "solc"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+    labels:
+      - "dependencies"
+      - "contracts"
+
+  # ── Backend: Analytics Service (NestJS + Viem + Redis + Socket.IO + GraphQL)
+  - package-ecosystem: "npm"
+    directory: "/backend/services/analytics-service"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 10
+    groups:
+      nestjs:
+        patterns:
+          - "@nestjs/*"
+          - "nest-*"
+      ethereum-libs:
+        patterns:
+          - "viem"
+          - "ethers"
+      graphql:
+        patterns:
+          - "graphql"
+          - "@graphql/*"
+          - "graphql-*"
+          - "@apollo/*"
+          - "apollo-*"
+      testing:
+        patterns:
+          - "jest"
+          - "@jest/*"
+          - "ts-jest"
+          - "supertest"
+    labels:
+      - "dependencies"
+      - "backend"
+      - "analytics-service"
+
+  # ── Backend: Wallet Service (NestJS) ──────────────────────────────────────
+  - package-ecosystem: "npm"
+    directory: "/backend/services/wallet-service"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 8
+    groups:
+      nestjs:
+        patterns:
+          - "@nestjs/*"
+          - "nest-*"
+      testing:
+        patterns:
+          - "jest"
+          - "@jest/*"
+          - "ts-jest"
+          - "supertest"
+    labels:
+      - "dependencies"
+      - "backend"
+      - "wallet-service"
+
+  # ── Frontend (React 18 + Vite + Wagmi + Viem + Ant Design + Zustand) ──────
+  - package-ecosystem: "npm"
+    directory: "/frontend/web-app"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 10
+    groups:
+      wagmi-stack:
+        patterns:
+          - "wagmi"
+          - "@wagmi/*"
+          - "viem"
+          - "abitype"
+          - "connectkit"
+          - "rainbowkit"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-*"
+          - "@types/react"
+          - "@types/react-dom"
+      ant-design:
+        patterns:
+          - "antd"
+          - "@ant-design/*"
+      state-and-data:
+        patterns:
+          - "zustand"
+          - "@tanstack/*"
+          - "react-query"
+      vite-tooling:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "vite-*"
+      typescript-tooling:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "ts-*"
+          - "eslint"
+          - "eslint-*"
+          - "prettier"
+    labels:
+      - "dependencies"
+      - "frontend"
+
+  # ── Subgraph (The Graph) ───────────────────────────────────────────────────
+  - package-ecosystem: "npm"
+    directory: "/subgraph"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 5
+    groups:
+      graph-tooling:
+        patterns:
+          - "@graphprotocol/*"
+          - "graph-*"
+    labels:
+      - "dependencies"
+      - "subgraph"
+
+  # ── GitHub Actions ─────────────────────────────────────────────────────────
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
