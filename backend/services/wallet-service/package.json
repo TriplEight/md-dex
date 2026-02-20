@@ -38,7 +38,7 @@
     "rxjs": "^7.8.1",
     "socket.io": "^4.8.1",
     "sql.js": "^1.13.0",
-    "typeorm": "^0.3.19",
+    "typeorm": "^0.3.28",
     "viem": "^2.7.0"
   },
   "devDependencies": {
