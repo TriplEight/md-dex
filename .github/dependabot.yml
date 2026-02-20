@@ -12,6 +12,27 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Berlin"
+    groups:
+      typescript-tooling:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "ts-node"
+          - "ts-*"
+          - "eslint"
+          - "eslint-*"
+          - "prettier"
+          - "@types/*"
+      testing:
+        patterns:
+          - "jest"
+          - "@jest/*"
+          - "ts-jest"
+          - "@types/jest"
+      all-root-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "root"
@@ -39,8 +60,11 @@ updates:
         patterns:
           - "ethers"
           - "viem"
+      contracts-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     ignore:
-      # Solidity compiler version bumps should be deliberate
       - dependency-name: "solc"
         update-types: ["version-update:semver-major", "version-update:semver-minor"]
     labels:
@@ -76,7 +100,13 @@ updates:
           - "jest"
           - "@jest/*"
           - "ts-jest"
+          - "@types/jest"
           - "supertest"
+          - "@types/supertest"
+      analytics-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "backend"
@@ -100,7 +130,13 @@ updates:
           - "jest"
           - "@jest/*"
           - "ts-jest"
+          - "@types/jest"
           - "supertest"
+          - "@types/supertest"
+      wallet-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "backend"
@@ -149,9 +185,14 @@ updates:
           - "typescript"
           - "@typescript-eslint/*"
           - "ts-*"
+          - "@types/*"
           - "eslint"
           - "eslint-*"
           - "prettier"
+      frontend-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "frontend"
@@ -169,6 +210,10 @@ updates:
         patterns:
           - "@graphprotocol/*"
           - "graph-*"
+      subgraph-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "subgraph"
@@ -181,6 +226,14 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "Europe/Berlin"
+    groups:
+      github-actions-version:
+        patterns:
+          - "*"
+      github-actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "github-actions"
