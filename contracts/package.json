@@ -19,7 +19,7 @@
     "dotenv": "^16.4.0",
     "ethers": "^6.16.0",
     "hardhat": "^3.1.9",
-    "solc": "0.8.20",
+    "solc": "0.8.34",
     "typechain": "^8.3.0",
     "typescript": "^5.3.0"
   },
