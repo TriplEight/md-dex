@@ -15,7 +15,7 @@
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
     "@typechain/ethers-v6": "^0.5.0",
     "@typechain/hardhat": "^9.1.0",
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.3",
     "dotenv": "^17.3.1",
     "ethers": "^6.16.0",
     "hardhat": "^3.1.9",
